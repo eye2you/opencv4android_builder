@@ -6,3 +6,15 @@ The Dockerfile builds an image that downloads NDK v21e and the latest SDK. It ac
 The 4 ABIs armeabi-v7a, arm64-v8a, x86, and x86_64 are built and then installed in /root/build/install before they are copied to /data/.
 
 Mount a folder to /data/ in the container to copy the files out.
+
+Example command:
+
+```bash
+docker build -t opencvbuild:4.5.1 .
+```
+
+and then
+
+```bash 
+docker run --name opencvbuild:4.5.1 --attach STDOUT --mount type=bind,source="${pwd}"/data,target=/data 
+```

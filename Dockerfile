@@ -18,7 +18,8 @@ ENV ANDROID_PLATFORM=26
 WORKDIR /root/build
 COPY *.sh /root/build/
 
-CMD ./build_all.sh
+SHELL ["/bin/bash", "-c"]
+CMD ["/bin/bash", "/root/build/build_all.sh"]
 
 
 
