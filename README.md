@@ -16,5 +16,10 @@ docker build -t opencvbuild:4.5.1 .
 and then
 
 ```bash 
-docker run --name opencvbuild:4.5.1 --attach STDOUT --mount type=bind,source="${pwd}"/data,target=/data 
+docker run --name builder --attach STDOUT opencvbuild:4.5.1
+```
+
+Ather the build is completed you can transfer the result from the container to your local computer:
+```bash
+docker container cp builder:/root/build/install install
 ```
